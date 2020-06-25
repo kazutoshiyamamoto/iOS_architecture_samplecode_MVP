@@ -13,3 +13,7 @@ protocol SearchUserModelInput {
         query: String,
         completion: @escaping (Result<[User]>) -> ())
 }
+
+final class SearchUserModel: SearchUserModelInput {
+    
+}
