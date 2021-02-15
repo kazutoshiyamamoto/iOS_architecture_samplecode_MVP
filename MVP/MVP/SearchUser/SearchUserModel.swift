@@ -10,12 +10,14 @@ import Foundation
 import GitHub
 
 protocol SearchUserModelInput {
+    // リクエスト処理
     func fetchUser(
         query: String,
         completion: @escaping (Result<[User]>) -> ())
 }
 
 final class SearchUserModel: SearchUserModelInput {
+    // ユーザー情報を取得
     func fetchUser(
         query: String,
         completion: @escaping (Result<[User]>) -> ()) {
