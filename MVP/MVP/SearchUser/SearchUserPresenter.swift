@@ -9,6 +9,7 @@
 import Foundation
 import GitHub
 
+// UIの表示に必要なプロパティもしくはユーザーの操作によって発火する処理が定義されている
 protocol SearchUserPresenterInput {
     var numberOfUsers: Int { get }
     func user(forRow row: Int) -> User?
@@ -16,6 +17,7 @@ protocol SearchUserPresenterInput {
     func didTapSearchButton(text: String?)
 }
 
+// ユーザーの操作結果を扱うメソッドが定義されている
 protocol SearchUserPresenterOutput: AnyObject {
     func updateUsers(_ users: [User])
     func transitionToUserDetail(userName: String)
@@ -25,6 +27,8 @@ final class SearchUserPresenter: SearchUserPresenterInput {
     private(set) var users: [User] = []
 
     private weak var view: SearchUserPresenterOutput!
+    // スタブなどを使ってテストすることを想定しているので、
+    // SearchUserModel型ではなくSearchUserModelInput型になっている
     private var model: SearchUserModelInput
 
     init(view: SearchUserPresenterOutput, model: SearchUserModelInput) {
