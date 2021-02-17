@@ -17,7 +17,7 @@ protocol SearchUserPresenterInput {
     func didTapSearchButton(text: String?)
 }
 
-// ユーザーの操作結果を扱うメソッドが定義されている
+// Viewに描画指示を出す処理が定義されている
 protocol SearchUserPresenterOutput: AnyObject {
     func updateUsers(_ users: [User])
     func transitionToUserDetail(userName: String)
