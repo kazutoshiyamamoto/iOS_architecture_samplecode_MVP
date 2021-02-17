@@ -13,6 +13,11 @@ final class SearchUserViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
 
+    // Presenterに実装されたUIの表示に必要なプロパティもしくはユーザーの操作によって発火する処理を呼び出したいため、
+    // SearchUserPresenterInputを初期化する実装がある
+    // ちなみに、SearchUserPresenterOutputを初期化しないのは、
+    // SearchUserPresenterOutputの値にアクセスしたいわけではなく、
+    // 単にSearchUserPresenterOutputに準拠したメソッドで個別のふるまいをViewで定義したいため
     private var presenter: SearchUserPresenterInput!
     func inject(presenter: SearchUserPresenterInput) {
         self.presenter = presenter
